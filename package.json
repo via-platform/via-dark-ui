@@ -1,0 +1,25 @@
+{
+    "name": "via-dark-ui",
+    "version": "1.0.0",
+    "description": "The default UI theme for the VIA trading platform.",
+    "main": "./lib/main",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "via",
+        "trading",
+        "package",
+        "generator"
+    ],
+    "repository": "https://bitbucket.org/via-trading/via-dark-ui",
+    "author": "Dakota Gordon",
+    "engines": {
+        "via": "*"
+    },
+    "dependencies": {
+        "fs-plus": "^3.0.0",
+        "temp": "^0.8.1",
+        "underscore-plus": "^1.0.0"
+    }
+}
