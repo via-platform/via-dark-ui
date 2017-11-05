@@ -37,7 +37,7 @@
     font-size: @ui-input-size; // keep same as text input
   }
 
-  .find-container atom-text-editor {
+  .find-container via-text-editor {
     padding-right: @ui-size*5; // leave some room for the results count
   }
   .find-meta-container {
@@ -74,7 +74,7 @@
 // Colorize find-and-replace based on results
 & when (@ui-hue >= 190) and (@ui-hue <= 340) {
   .find-and-replace {
-    &.has-no-results .find-container atom-text-editor[mini].is-focused {
+    &.has-no-results .find-container via-text-editor[mini].is-focused {
       border-color: @text-color-error;
       box-shadow: 0 0 0 1px @text-color-error;
       background-color: mix(@text-color-error, @input-background-color, 10%);
@@ -86,7 +86,7 @@
       }
     }
 
-    &.has-results .find-container atom-text-editor[mini].is-focused {
+    &.has-results .find-container via-text-editor[mini].is-focused {
       border-color: @text-color-success;
       box-shadow: 0 0 0 1px @text-color-success;
       background-color: mix(@text-color-success, @input-background-color, 10%);
@@ -116,7 +116,7 @@
 
   .tool-panel {
     padding: @component-padding/2;
-    background-color: @level-2-color;
+    background-color: #24263e; //@level-2-color;
   }
 
   .inset-panel {

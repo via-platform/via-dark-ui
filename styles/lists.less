@@ -1,3 +1,5 @@
+@import "ui-variables";
+
 .list-group,
 .list-tree {
   li:not(.list-nested-item),
@@ -90,7 +92,7 @@
       margin-right: @ui-padding-icon;
     }
     li.active {
-      .octicon(check, @active-icon-size);
+    //   .octicon(check, @active-icon-size);
       &:before {
         margin-right: @ui-padding-icon;
         color: @text-color-success;
@@ -106,7 +108,7 @@
   padding: @popover-list-padding;
   border-radius: @component-border-radius;
 
-  atom-text-editor[mini] {
+  via-text-editor[mini] {
     margin-bottom: @popover-list-padding;
   }
 
@@ -141,4 +143,29 @@ li.ui-sortable-helper {
   padding: 0 @ui-padding;
   background: @background-color-highlight;
   box-shadow: 0 0 1px @base-border-color;
+}
+
+ul.list
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+li.list-item
+{
+    padding: 5px 10px;
+    line-height: 20px;
+    cursor: default;
+
+    &:hover
+    {
+        background: lighten(@tool-panel-background-color, 3%);
+    }
+
+    &.active
+    {
+        background: @ui-bg;
+        color: #FFF;
+    }
 }

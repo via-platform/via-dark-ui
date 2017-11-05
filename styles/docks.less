@@ -2,7 +2,7 @@
 // Docks ------------------------------
 
 // Make handles not take up any space when dock is open
-.atom-dock-resize-handle {
+.via-dock-resize-handle {
   position: absolute;
   z-index: 11; // same as toggle buttons
 
@@ -24,20 +24,20 @@
 }
 
 // Add borders
-.atom-dock-inner.atom-dock-open.left {
+.via-dock-inner.via-dock-open.left {
   border-right: 1px solid @base-border-color;
 }
-.atom-dock-inner.atom-dock-open.right {
+.via-dock-inner.via-dock-open.right {
   border-left: 1px solid @base-border-color;
 }
 
 // Make toggle buttons cover ^ border
-.atom-dock-toggle-button.left {
+.via-dock-toggle-button.left {
   margin-left: -1px;
 }
-.atom-dock-toggle-button.right {
+.via-dock-toggle-button.right {
   margin-right: -1px;
 }
-.atom-dock-inner:not(.atom-dock-open) .atom-dock-toggle-button.bottom {
+.via-dock-inner:not(.via-dock-open) .via-dock-toggle-button.bottom {
   margin-bottom: -1px;
 }

@@ -1,13 +1,13 @@
 
-atom-pane-container {
+via-pane-container {
 
-  atom-pane {
+  via-pane {
     position: relative;
     border-right: 1px solid @base-border-color;
     border-bottom: 1px solid @base-border-color;
 
     .item-views {
-      // prevent atom-text-editor from leaking ouside might improve performance
+      // prevent via-text-editor from leaking ouside might improve performance
       overflow: hidden;
     }
   }
@@ -15,8 +15,8 @@ atom-pane-container {
 }
 
 // Hide right-most border
-atom-pane:only-child,
-atom-pane-axis.pane-row > atom-pane:last-child,
-atom-pane-axis.pane-column:last-child > atom-pane {
+via-pane:only-child,
+via-pane-axis.pane-row > via-pane:last-child,
+via-pane-axis.pane-column:last-child > via-pane {
   border-right: none;
 }

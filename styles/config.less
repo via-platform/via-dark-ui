@@ -13,10 +13,9 @@
   .tab,
   .tab.active {
     flex: 1 1 0;
-    max-width: 22em;
-    min-width: @tab-min-width;
   }
-  atom-dock & {
+
+  via-dock & {
     .tab,
     .tab.active {
       max-width: none;
@@ -50,7 +49,7 @@
     min-width: 2.75em;
     max-width: @tab-min-width * 3.3;
   }
-  atom-dock {
+  via-dock {
     .tab,
     .tab.active {
       max-width: @tab-min-width * 2;
@@ -65,12 +64,12 @@
 [@{theme-dockButtons}="hidden"] {
 
   // Hide docks when not open
-  .atom-dock-inner:not(.atom-dock-open) {
+  .via-dock-inner:not(.via-dock-open) {
     display: none;
   }
 
   // Hide toggle buttons
-  .atom-dock-toggle-button {
+  .via-dock-toggle-button {
     display: none;
   }
 

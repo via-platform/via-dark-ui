@@ -1,65 +1,124 @@
 
 // Tabs
-
+@tab-height: 32px;
 @tab-border: 1px solid @tab-border-color;
-@title-padding: .66em;
-@icon-padding-top: .5em; // 2.5 (total) - 1.5 (text) / 2
-@icon-padding-right: .5em;
+@title-padding: 0 10px;
+@icon-padding-top: 7px; // 2.5 (total) - 1.5 (text) / 2
+@icon-padding-right: 7px;
+@tab-bar-background-color: #262626;
 
-.tab-bar {
+
+.tab-bar-panel
+{
+    height: @tab-height + 1;
+}
+
+.tab-bar
+{
+    background: transparent;
   position: relative;
-  height: @ui-tab-height;
-  box-shadow: inset 0 -1px 0 @tab-border-color;
-  background: @tab-bar-background-color;
-  overflow-x: auto;
-  overflow-y: hidden;
+  height: @tab-height;
   border-radius: 0;
+  background: darken(@tab-background-color, 3%);
+  border-bottom: 1px solid darken(@tab-background-color, 5%);
 
-  &::-webkit-scrollbar {
+  &::-webkit-scrollbar
+  {
     display: none;
   }
 
-  &:empty {
+  &:empty
+  {
     display: none;
   }
 
 
   // Tab ----------------------
 
-  .tab {
+  .tab
+  {
+    flex: 1;
     position: relative;
     top: 0;
     padding: 0;
     margin: 0;
     height: inherit;
     font-size: inherit;
-    line-height: @ui-tab-height;
     color: @tab-text-color;
-    background-color: @tab-background-color;
-    box-shadow: inherit;
-    border-left: @tab-border;
-    &.active {
-      color: @tab-text-color-active;
-      background-color: @tab-background-color-active;
-      box-shadow: none;
+    box-sizing: border-box;
+    // max-width: 220px;
+    min-width: 40px;
+    z-index: 3;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+
+    &.active
+    {
+        color: @tab-text-color-active;
+        box-shadow: none;
+        background-color: @tab-background-color;
+        border-color: darken(@tab-background-color, 5%);
+
+        &::before, &::after
+        {
+            position: absolute;
+            content: "";
+            pointer-events: none;
+        }
+
+        &::before
+        {
+            // top: auto;
+            // bottom: -1px;
+            // left: 0;
+            // right: 0;
+            // background: @tab-background-color;
+            // height: 1px;
+        }
+
+        &::after
+        {
+            // top: auto;
+            // top: 0;
+            // left: 0;
+            // right: 0;
+            // background: @via;
+            // height: 2px;
+            // border-radius: 2px 2px 0 0;
+        }
     }
-    &:first-of-type {
-      border-left-color: transparent;
+
+    &:first-child
+    {
+        border-left: 0;
     }
-    &:last-of-type {
+
+    &:last-child
+    {
+        border-right: 0;
+    }
+
+    &:last-of-type
+    {
       // use box-shadow to not take up any space
-      box-shadow: inset 0 -1px 0 @tab-border-color, 1px 0 0 @base-border-color;
+    //   box-shadow: inset 0 -1px 0 @tab-border-color, 1px 0 0 @base-border-color;
     }
-    &.active:last-of-type {
-      box-shadow: 1px 0 0 @base-border-color;
+
+    &.active:last-of-type
+    {
+    //   box-shadow: 1px 0 0 @base-border-color;
     }
 
 
     // Title ----------------------
 
-    .title {
-      text-align: center;
-      margin: 0 @title-padding;
+    .title
+    {
+        text-align: center;
+        padding: @title-padding;
+        line-height: 32px;
+        font-size: 12px;
+        // font-weight: 500;
     }
 
 
@@ -75,38 +134,47 @@
 
     // Close icon ----------------------
 
-    .close-icon {
-      top: @icon-padding-top;
-      right: @icon-padding-right;
-      z-index: 2;
-      font-size: 1em;
-      width: 1.5em;
-      height: 1.5em;
-      line-height: 1.5;
-      border-radius: @component-border-radius;
-      background-color: inherit;
-      overflow: hidden;
-      transform: scale(0);
-      transition: transform .08s;
-      &:hover {
-        color: @accent-text-color;
-        background-color: @accent-color;
-      }
-      &:active {
-        background-color: fade(@accent-color, 50%);
-      }
-      &::before {
-        z-index: 1;
-        position: absolute;
-        font-size: 1.1em;
-        width: inherit;
-        height: inherit;
-        line-height: inherit;
-        text-align: center;
-        pointer-events: none;
-      }
+    .close-icon
+    {
+        top: @icon-padding-top;
+        right: @icon-padding-right;
+        z-index: 2;
+        font-size: 1em;
+        width: 1.5em;
+        height: 1.5em;
+        line-height: 18px;
+        border-radius: @component-border-radius;
+        background-color: inherit;
+        overflow: hidden;
+        transform: scale(0);
+        transition: transform .08s;
+
+        &:hover
+        {
+            color: @accent-text-color;
+            background-color: @via;
+        }
+
+        &:active
+        {
+            background-color: fade(@via, 50%);
+        }
+
+        &::before
+        {
+            z-index: 1;
+            position: absolute;
+            font-size: 1.1em;
+            width: inherit;
+            height: inherit;
+            line-height: inherit;
+            text-align: center;
+            pointer-events: none;
+        }
     }
-    &:hover .close-icon {
+
+    &:hover .close-icon
+    {
       transform: scale(1);
       transition-duration: .16s;
     }
@@ -141,9 +209,9 @@
 
   // Tabs in the docks ----------------------
 
-  atom-dock & {
+  via-dock & {
     .tab.active {
-      background-color: @tool-panel-background-color;
+    //   background-color: @tool-panel-background-color;
     }
   }
 
@@ -203,7 +271,7 @@
   .tab.active {
     padding-right: 0;
     .title {
-      padding: 0;
+    //   padding: 0;
     }
   }
 }
@@ -211,20 +279,20 @@
 
 // Active pane marker --------------
 
-atom-pane.active .tab.active:before {
-  content: "";
-  position: absolute;
-  pointer-events: none;
-  z-index: 2;
-  top: 0;
-  left: -1px; // cover left border
-  bottom: 0;
-  width: 2px;
-  background: @accent-color;
-}
+// via-pane.active .tab.active:before {
+//   content: "";
+//   position: absolute;
+//   pointer-events: none;
+//   z-index: 2;
+//   top: 0;
+//   left: -1px; // cover left border
+//   bottom: 0;
+//   width: 2px;
+//   background: @accent-color;
+// }
 
 // hide marker in docks
-atom-dock .tab-bar .tab::before {
+via-dock .tab-bar .tab::before {
   display: none;
 }
 
@@ -238,6 +306,48 @@ atom-dock .tab-bar .tab::before {
   &[data-type$="StyleguideView"],
   &[data-type="MarkdownPreviewView"] {
     color: @tab-text-color-editor;
-    background-color: @tab-background-color-editor; // Match syntax background color
+    // background-color: @tab-background-color-editor; // Match syntax background color
   }
+}
+
+
+
+.workspace-tabs-panel
+{
+    border-bottom: 0;
+
+    .tab-bar
+    {
+        height: 29px;
+        border-bottom: 1px solid #080808;
+        background: @tab-bar-background-color;
+
+        .tab
+        {
+            max-width: none;
+            border-right: 1px solid #080808;
+            height: 28px;
+
+            &.active
+            {
+                background: #333;
+
+                &::after
+                {
+                    top: -1px;
+                    left: 0;
+                    right: 0;
+                    height: 1px;
+                    background: #222;
+                    content: "";
+                    z-index: 2;
+                }
+            }
+
+            &:last-child
+            {
+                border-right: 0;
+            }
+        }
+    }
 }
