@@ -1,59 +1,59 @@
 {
-    "name": "via-dark-ui",
-    "version": "0.0.0",
-    "description": "The default UI theme for the Via trading platform.",
-    "main": "./lib/main",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "via-dark-ui",
+  "version": "0.1.0",
+  "description": "The default UI theme for the Via trading platform.",
+  "main": "./lib/main",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "theme": "ui",
+  "keywords": [
+    "via",
+    "trading",
+    "dark",
+    "ui"
+  ],
+  "repository": "https://github.com/via-platform/via-dark-ui",
+  "author": "Dakota Gordon",
+  "engines": {
+    "via": "*"
+  },
+  "dependencies": {
+    "fs-plus": "^3.0.0",
+    "temp": "^0.8.1",
+    "underscore-plus": "^1.0.0"
+  },
+  "configSchema": {
+    "fontSize": {
+      "title": "Font Size",
+      "description": "Change the UI font size. Needs to be between 8 and 20. In Auto mode, the Font Size will automatically change based on the window size.",
+      "type": [
+        "integer",
+        "string"
+      ],
+      "minimum": 8,
+      "maximum": 20,
+      "default": "Auto",
+      "order": 1
     },
-    "theme": "ui",
-    "keywords": [
-        "via",
-        "trading",
-        "dark",
-        "ui"
-    ],
-    "repository": "https://github.com/via-platform/via-dark-ui",
-    "author": "Dakota Gordon",
-    "engines": {
-        "via": "*"
+    "tabSizing": {
+      "title": "Tab Sizing",
+      "description": "In Even mode all tabs will be the same size. Great for quickly closing many tabs. In Maximum mode the tabs will expand to take up the full width. In Minimum mode the tabs will only take as little space as needed and also show longer file names.",
+      "type": "string",
+      "default": "Even",
+      "enum": [
+        "Even",
+        "Maximum",
+        "Minimum"
+      ],
+      "order": 2
     },
-    "dependencies": {
-        "fs-plus": "^3.0.0",
-        "temp": "^0.8.1",
-        "underscore-plus": "^1.0.0"
-    },
-    "configSchema": {
-        "fontSize": {
-            "title": "Font Size",
-            "description": "Change the UI font size. Needs to be between 8 and 20. In Auto mode, the Font Size will automatically change based on the window size.",
-            "type": [
-                "integer",
-                "string"
-            ],
-            "minimum": 8,
-            "maximum": 20,
-            "default": "Auto",
-            "order": 1
-        },
-        "tabSizing": {
-            "title": "Tab Sizing",
-            "description": "In Even mode all tabs will be the same size. Great for quickly closing many tabs. In Maximum mode the tabs will expand to take up the full width. In Minimum mode the tabs will only take as little space as needed and also show longer file names.",
-            "type": "string",
-            "default": "Even",
-            "enum": [
-                "Even",
-                "Maximum",
-                "Minimum"
-            ],
-            "order": 2
-        },
-        "hideDockButtons": {
-            "title": "Hide dock toggle buttons",
-            "description": "Note: When hiding the toggle buttons, opening a dock needs to be done by using the keyboard or other alternatives.",
-            "type": "boolean",
-            "default": "false",
-            "order": 3
-        }
+    "hideDockButtons": {
+      "title": "Hide dock toggle buttons",
+      "description": "Note: When hiding the toggle buttons, opening a dock needs to be done by using the keyboard or other alternatives.",
+      "type": "boolean",
+      "default": "false",
+      "order": 3
     }
+  }
 }
